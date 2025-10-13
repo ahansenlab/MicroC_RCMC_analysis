@@ -1,0 +1,5 @@
+condition	fastq1	fastq2	rep	lane
+test	/mnt/rosalind_md1/Miles/testing/test_data/WT.Jurkat.allreps.chr16.merged_downsampled_1.fastq	/mnt/rosalind_md1/Miles/testing/test_data/WT.Jurkat.allreps.chr16.merged_downsampled_2.fastq	rep1	lane1
+test	/mnt/rosalind_md1/Miles/testing/test_data/WT.Jurkat.allreps.chr16.merged_downsampled_1_l2.fastq	/mnt/rosalind_md1/Miles/testing/test_data/WT.Jurkat.allreps.chr16.merged_downsampled_2_l2.fastq	rep1	lane2
+test	/mnt/rosalind_md1/Miles/testing/test_data/WT.Jurkat.allreps.chr16.merged_downsampled_1_rep2.fastq	/mnt/rosalind_md1/Miles/testing/test_data/WT.Jurkat.allreps.chr16.merged_downsampled_2_rep2.fastq	rep2	lane1
+test2	/mnt/rosalind_md1/Miles/testing/test_data/WT.Jurkat.allreps.chr16.merged_downsampled_1.v2.fastq	/mnt/rosalind_md1/Miles/testing/test_data/WT.Jurkat.allreps.chr16.merged_downsampled_2.v2.fastq	rep1	lane1

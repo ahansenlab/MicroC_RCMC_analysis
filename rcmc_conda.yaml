@@ -1,0 +1,11 @@
+name: microcanalysis
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.12.11
+  - bedops=2.4.42
+  - cooler=0.10.4
+  - pairtools=1.1.3
+  - snakemake=9.12.0
+  - bwa-mem2=2.3

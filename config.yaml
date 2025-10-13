@@ -1,0 +1,28 @@
+# Path to a tsv file listing input samples and their corresponding information. Please see the example file in the GitHub repository for reference.
+samples: ./samples.tsv
+
+# Output directory - must end with /
+outdir: /mnt/rosalind_md1/Miles/testing/outputs/
+# Path to genome fasta file
+genome: /mnt/rosalind_md0/DataRepository/genomes/hg19/hg19.fa
+# Name of genome assembly (e.g. mm39, mm10, hg19, etc.)
+assembly: hg19
+# Path to tab-delimited chromosome sizes file with chromosomes sorted by [what?] and containing only the major chromosomes and not other [whatever these are called], formatted as for [link to USCS Goldenpath file]
+chromsizes: /mnt/rosalind_md0/DataRepository/chromsizes/hg19/hg19.sorted.chrom.sizes
+
+# Resolutions to bin contact maps to (comma-separated list, must all be integer multiples of the smallest value)
+resolutions: 10000000,5000000,2500000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000
+
+# RCMC regions: if not RCMC, leave empty; if RCMC, then provide the path to a .bed file (with only chrom, start, and end columns, and no header) containing the regions
+regions: 
+# regions: /mnt/rosalind_md1/Miles/Analysis/RCMC_protocols/Goel2023/klf1.bed
+
+# Number of threads to use
+threads: 8
+
+# Minimum MAPQ score to filter by. 30 is recommended.
+mapqmin: 30
+
+
+
+
