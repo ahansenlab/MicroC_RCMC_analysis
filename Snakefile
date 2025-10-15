@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 # Name of config file
-configfile: "config.yaml"
+configfile: "config/config.yaml"
 
 samples = (
 	pd.read_csv(config["samples"], sep="\t", dtype={"condition": str})
