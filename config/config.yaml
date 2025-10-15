@@ -4,7 +4,7 @@ samples: ./samples.tsv
 # Output directory - must end with /
 outdir: ./outputs/
 # Path to genome fasta file
-genome: demo/hg19.fa
+genome: demo/hg19.fa.gz
 # Name of genome assembly (e.g. mm39, mm10, hg19, etc.)
 assembly: hg19
 # Path to tab-delimited chromosome sizes file with chromosomes sorted by [what?] and containing only the major chromosomes and not other [whatever these are called], formatted as for [link to USCS Goldenpath file]
