@@ -74,7 +74,7 @@ rule index_genome:
 	input:
 		config["genome"]
 	output:
-		multiext(config["genome"], ".amb", ".ann", ".bwt", ".fai", ".pac", ".sa")
+		multiext(config["genome"], ".0123", ".amb", ".ann", ".bwt.2bit.64", ".pac")
 	shell:
 		"bwa-mem2 index {input}"
 
