@@ -84,6 +84,7 @@ docker exec higlass_container_name python higlass-server/manage.py ingest_tilese
 Go to hostname.org:XXXX/app to load your HiGlass instance, where hostname.org is replaced with the address of your server (e.g. example.mit.edu) or its IP address, and XXXX is replaced with the port number specified above. You can load your `.mcool` for visualisation from the '+' menu in the upper right corner in the centre square. To situate yourself in the genome, you can also add chromosome position markers (under chromosomes) and gene annotations (under Gene Annotations) by choosing the appropriate options for your genome build.
 
 ---
+---
 ## Running your own analysis
 To run analysis of your own data, you will need to prepare the following things:
 1. A new `samples.tsv` file (can be named whatever you want). Follow the template of the file already provided for including your `.fastq` files. Lane and replicate numbers must be filled, even if you only have one (but the values can be any arbitrary text).
