@@ -40,10 +40,10 @@ wget https://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz
 ```
 Run the pipeline, setting an appropriate number of cores for your system - this number serves as the upper limit for what your processes will use. If setting this lower than 8, also change the value set for the `threads` parameter in `config/config.yaml` using a text editor. This will first index the genome file that was downloaded - this may take ~2 hours. If you already have a `bwa-mem2` indexed genome to use, you can use this instead by modifying the `genome` parameter in `config/config.yaml` to have the full path to the location of the genome file and its associated 
 ```
-snakemake --cores 8
+snakemake --cores 8 --sdm conda
 ```
 ### Running demo analysis - RCMC
 RCMC analysis can be run in much the same way as Micro-C analysis. To run in RCMC mode, comment out the blank `regions` entry in `config/config.yaml` and uncomment `regions: demo/capture_locus.bed`. This provides a `.bed` format file which indicates the position of a captured region (no capture was performed on the demo data, but the same procedure can be performed to run the pipeline this way). Once `config/config.yaml` has been modified, you can again run the demo analysis to produce a new `.mcool` file which only contains reads in the indicated region:
 ```
-snakemake --cores 8
+snakemake --cores 8 --sdm conda
 ```
