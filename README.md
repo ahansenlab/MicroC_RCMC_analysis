@@ -81,7 +81,7 @@ cp outputs/conditioncools/WT_merged.mcool higlass/tmp/
 docker exec higlass_container_name python higlass-server/manage.py ingest_tileset --filename /tmp/WT_merged.mcool --filetype cooler --datatype matrix --project-name demo_mcools
 ```
 #### Access your data on HiGlass
-Go to hostname.org:XXXX/app to load your HiGlass instance, where hostname.org is replaced with the address of your server (e.g. example.mit.edu) or its IP address, and XXXX is replaced with the port number specified above. You can load your `.mcool` for visualisation from the '+' menu in the upper right corner in the centre square. To situate yourself in the genome, you can also add chromosome position markers (under chromosomes) and gene annotations (under Gene Annotations) by choosing the appropriate options for your genome build.
+Go to [hostname.org:XXXX/app](http://hostname.org:XXXX/app) to load your HiGlass instance, where hostname.org is replaced with the address of your server (e.g. example.mit.edu) or its IP address, and XXXX is replaced with the port number specified above. You can load your `.mcool` for visualisation from the '+' menu in the upper right corner in the centre square. To situate yourself in the genome, you can also add chromosome position markers (under chromosomes) and gene annotations (under Gene Annotations) by choosing the appropriate options for your genome build.
 
 ---
 ---
@@ -98,7 +98,3 @@ snakemake --cores 8 --sdm conda
 ```
 
 [^1]: Kerpedjiev et al. HiGlass: Web-based visual comparison and exploration of genome interaction maps. Genome Biology, 19:125 (2018)
-
-
-
-
