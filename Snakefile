@@ -63,8 +63,8 @@ rule make_blacklist:
 			)
 	output:
 		config["outdir"]+"beds/blacklist.bed"
-	# conda:
-	# 	"rcmc_conda.yaml"
+	conda:
+		"env/rcmc_conda.yaml"
 	shell:
 		"bedops --partition {input.chroms} {input.regions} | bedops "
 		"--not-element-of 1 - {input.regions} > {output}"
@@ -113,8 +113,8 @@ rule make_pairs:
 		mapqmin = config["mapqmin"]
 	log:
 		"logs/alignment/{condition}_{rep}_{lane}.log"
-	# conda:
-	# 	"rcmc_conda.yaml"
+	conda:
+		"env/rcmc_conda.yaml"
 	shell:
 		# Alignment command
 		"(bwa-mem2 mem -t {threads} -SP {input.genome} {input.fastq1} {input.fastq2} | pairtools "
@@ -151,8 +151,8 @@ rule merge_and_dedup_lanes:
 		config["threads"]
 	log:
 		"logs/dedup/{condition}_{rep}.log"
-	# conda:
-	# 	"rcmc_conda.yaml"
+	conda:
+		"env/rcmc_conda.yaml"
 	shell:
 		"(pairtools merge --tmpdir {input.sorttemp} --nproc {threads} {input.pairs} | pairtools "
 		"dedup --max-mismatch 1 --mark-dups --output {output.dedup} --output-unmapped "
@@ -174,7 +174,7 @@ rule merge_and_dedup_lanes:
 # 	log:
 # 		"logs/dedup/{condition}_{rep}.log"
 # 	conda:
-# 		"rcmc_conda.yaml"
+# 		"env/rcmc_conda.yaml"
 # 	shell:
 # 		"(pairtools dedup --max-mismatch 1 --mark-dups --output {output.dedup} "
 # 		"--output-unmapped {unmapped.dedup} --output-dups {output.dups} "
@@ -200,8 +200,8 @@ rule merge_reps_by_condition:
 		config["threads"]
 	log:
 		"logs/merge/{condition}.log"
-	# conda:
-	# 	"rcmc_conda.yaml"
+	conda:
+		"env/rcmc_conda.yaml"
 	shell:
 		"(pairtools merge --tmpdir {input.sorttemp} --nproc {threads} "
 		"--output {output} "
@@ -213,8 +213,8 @@ rule index_reps:
 		rules.merge_and_dedup_lanes.output.dedup
 	output:
 		config["outdir"]+"dedup/{condition}_{rep}_nodups.pairs.gz.px2"
-	# conda:
-	# 	"rcmc_conda.yaml"
+	conda:
+		"env/rcmc_conda.yaml"
 	shell:
 		"pairix {input}"
 
@@ -226,7 +226,7 @@ rule index_conditions:
 	output:
 		config["outdir"]+"repmerge/{condition}_merged_nodups.pairs.gz.px2"
 	conda:
-		"rcmc_conda.yaml"
+		"env/rcmc_conda.yaml"
 	shell:
 		"pairix {input}"
 
@@ -245,8 +245,8 @@ rule rep_cools:
 		minimumresolution = minres
 	log:
 		"logs/repcools/{condition}_{rep}.log"
-	# conda:
-	# 	"rcmc_conda.yaml"
+	conda:
+		"env/rcmc_conda.yaml"
 	shell:
 		"(bgzip -cd -@ {threads} {input.pairs} | cooler cload pairs -c1 2 -p1 3 -c2 4 -p2 5 "
 		"--assembly {params.assembly} {params.chromsizes}:{params.minimumresolution} - {output}) 2> {log}"
@@ -266,8 +266,8 @@ rule condition_cools:
 		minimumresolution = minres
 	log:
 		"logs/conditioncools/{condition}.log"
-	# conda:
-	# 	"rcmc_conda.yaml"
+	conda:
+		"env/rcmc_conda.yaml"
 	shell:
 		"(bgzip -cd -@ {threads} {input.pairs} | cooler cload pairs -c1 2 -p1 3 -c2 4 -p2 5 "
 		"--assembly {params.assembly} {params.chromsizes}:{params.minimumresolution} - {output}) 2> {log}"
@@ -291,10 +291,10 @@ rule rep_mcools:
 		balance = balancearg
 	log:
 		"logs/repmcools/{condition}_{rep}.log"
-	# conda:
-	# 	"rcmc_conda.yaml"
+	conda:
+		"env/rcmc_conda.yaml"
 	shell:
-		"(cooler zoomify --nproc {threads} --balance {params.balance}--out {output} --resolutions {params.resolutions} {input.cool})"
+		"(cooler zoomify --nproc {threads} --balance {params.balance}--out {output} --resolutions {params.resolutions} {input.cool}) 2> {log}"
 
 # Make mcools for conditions
 rule condition_mcools:
@@ -315,7 +315,7 @@ rule condition_mcools:
 		balance = balancearg
 	log:
 		"logs/conditionmcools/{condition}.log"
-	# conda:
-	# 	"rcmc_conda.yaml"
+	conda:
+		"env/rcmc_conda.yaml"
 	shell:
-		"(cooler zoomify --nproc {threads} --balance {params.balance}--out {output} --resolutions {params.resolutions} {input.cool})"
+		"(cooler zoomify --nproc {threads} --balance {params.balance}--out {output} --resolutions {params.resolutions} {input.cool}) 2> {log}"
