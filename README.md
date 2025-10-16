@@ -1,9 +1,9 @@
 # MicroC_RCMC_analysis
-A processing pipeline for alignment, processing, and generation of contact maps for Micro-C and RCMC data
+A processing pipeline for alignment, processing, and generation of contact maps for Micro-C and RCMC data.
 
 ## Setup
 ### Conda setup (can be skipped if you already have conda installed)
-The pipeline uses conda environments to run all of the necessary tools for processing the data. If you do not have conda installed, install conda as follows (or by any other method appropriate for your system), answering `yes` to all asked questions:
+The pipeline uses conda environments to run all of the necessary tools for processing the data. If you do not have conda installed, install conda and mamba as follows (or by any other method appropriate for your system), answering `yes` to all asked questions:
 ```
 curl -L https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh -o Miniforge3-Linux-x86_64.sh
 bash Miniforge3-Linux-x86_64.sh
@@ -15,7 +15,7 @@ In order to run snakemake, a conda environment containing snakemake is needed. F
 ```
 conda activate base
 ```
-Next, create the required environment:
+Next, create the required environment (conda can also be used here if mamba is not installed):
 ```
 mamba env create --name snakemake-env -c conda-forge -c bioconda python=3.12 snakemake=9.12
 ```
