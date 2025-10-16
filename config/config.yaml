@@ -2,7 +2,7 @@
 samples: ./samples.tsv
 
 # Output directory - must end with /
-outdir: ./outputs/
+outdir: outputs/
 # Path to genome fasta file
 genome: demo/hg19.fa.gz
 # Name of genome assembly (e.g. mm39, mm10, hg19, etc.)
@@ -15,7 +15,7 @@ resolutions: 10000000,5000000,2500000,1000000,500000,250000,100000,50000,25000,1
 
 # RCMC regions: if not RCMC, leave empty; if RCMC, then provide the path to a .bed file (with only chrom, start, and end columns, and no header) containing the regions
 regions: 
-# regions: /mnt/rosalind_md1/Miles/Analysis/RCMC_protocols/Goel2023/klf1.bed
+# regions: demo/capture_locus.bed
 
 # Number of threads to use
 threads: 8
