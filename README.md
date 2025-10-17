@@ -37,7 +37,7 @@ clone git https://github.com/ahansenlab/MicroC_RCMC_analysis
 ---
 ## Running demo analysis
 ### Setup
-The repository includes files for running a quick demo analysis on heavily downsampled data. The fastq files for this data contain reads mapped to the human chromosome 16 from the hg19 build. All of the files included are already configured to run on the demo data, but a genome file is needed. This can be downloaded with the following command, or you can use your own file (see below):
+The repository includes files for running a quick demo analysis on heavily downsampled data. The fastq files for this data contain reads mapped to the human chromosome 16 from the hg19 build (note that these only contain 3,000,000 reads total, so the resulting maps will be sparse!). All of the files included are already configured to run on the demo data, but a genome file is needed. This can be downloaded with the following command, or you can use your own file (see below):
 ```
 wget --directory-prefix demo https://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz
 ```
