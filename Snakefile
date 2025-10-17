@@ -66,8 +66,9 @@ rule make_blacklist:
 	conda:
 		"env/rcmc_conda.yaml"
 	shell:
-		"bedops --partition {input.chroms} {input.regions} | bedops "
-		"--not-element-of 1 - {input.regions} > {output}"
+		"bedops --partition <(bedtools sort -i {input.chroms}) "
+		"<(bedtools sort -i {input.regions}) | bedops "
+		"--not-element-of 1 - <(bedtools sort -i {input.regions}) > {output}"
 
 # Index genome file if necessary
 rule index_genome:
