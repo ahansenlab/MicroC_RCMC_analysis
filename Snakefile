@@ -28,15 +28,9 @@ def sort_tmp():
 
 rule all:
 	input:
-		# config["outdir"]+"beds/blacklist.bed"
 		expand(config["outdir"]+"repcools/{condition}_{rep}.mcool", zip, condition = samples.condition, rep = samples.rep),
 		expand(config["outdir"]+"conditioncools/{condition}_merged.mcool", zip, condition = samples.condition)
-		# expand(config["outdir"]+"repmerge/{condition}_merged_nodups.pairs.gz", zip, condition = samples.condition),
-		# expand(config["outdir"]+"dedup/{condition}_{rep}_nodups.pairs.gz.px2", zip, condition = samples.condition, rep = samples.rep),
-		# expand(config["outdir"]+"repmerge/{condition}_merged_nodups.pairs.gz.px2", zip, condition = samples.condition)
-		# expand(config["outdir"]+"dedup/{condition}_{rep}_nodups.pairs.gz", zip, condition = samples.condition, rep = samples.rep)
-# 		expand(config["outdir"]+"pairs/{condition}_{rep}_{lane}.pairs", zip, condition = samples.condition, rep = samples.rep, lane = samples.lane)
-		# config["outdir"]+"mcools/{condition}.mcool"
+
 
 def make_chrombed(chromsizes, outdir):
 	chromsizesdf = pd.read_csv(chromsizes, sep = "\t", names = ["chrom", "end"], header = None)
@@ -82,6 +76,8 @@ rule index_genome:
 rule make_sort_dir:
 	# input:
 	# 	outdir = config["outdir"]
+	conda:
+		"env/rcmc_conda.yaml"
 	output:
 		temp(directory(config["outdir"]+"{condition}_sorttemp"))
 	shell:
