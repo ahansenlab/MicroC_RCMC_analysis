@@ -69,13 +69,13 @@ mkdir higlass/data
 mkdir higlass/tmp
 ```
 #### Download the latest version of Docker HiGlass and create a HiGlass container
-Replace XXXX with a port on your server that you can access and change the name to something suitable.
+Replace XXXX with a port on your server that you can access and change the container name to something suitable.
 ```
 docker pull higlass/higlass-docker
 docker run --detach \
            --publish XXXX:80 \
-           --volume /mnt/md0/DataRepository/HiGlassforshare/RCMCpaper2022/data:/data \
-           --volume /mnt/md0/DataRepository/HiGlassforshare/RCMCpaper2022/tmp:/tmp \
+           --volume /path/to/your/analysis/directory/higlass/data:/data \
+           --volume /path/to/your/analysis/directory/higlass/tmp:/tmp \
            --name higlass_container_name \
            higlass/higlass-docker
 ```
