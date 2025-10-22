@@ -63,19 +63,20 @@ snakemake --cores 8 --sdm conda
 ### Visualisation of demo data
 Once execution completes, you can upload your completed `.mcool` file (found in `outputs/conditioncools`) to a [HiGlass](https://higlass.io/) instance[^1] using the following steps:
 #### Create HiGlass directories
+These can be created anywhere - we'll create them inside the directory where snakemake ran to keep everything in the same place.
 ```
 mkdir higlass
 mkdir higlass/data
 mkdir higlass/tmp
 ```
 #### Download the latest version of Docker HiGlass and create a HiGlass container
-Replace XXXX with a port on your server that you can access and change the container name to something suitable.
+Replace XXXX with a port on your server that you can access and change the container name to something suitable. Ensure that the paths to your data and tmp directories are full paths, not relative.
 ```
 docker pull higlass/higlass-docker
 docker run --detach \
            --publish XXXX:80 \
-           --volume /path/to/your/analysis/directory/higlass/data:/data \
-           --volume /path/to/your/analysis/directory/higlass/tmp:/tmp \
+           --volume /path/to/your/analysis/directory/MicroC_RCMC_analysis/higlass/data:/data \
+           --volume /path/to/your/analysis/directory/MicroC_RCMC_analysis/higlass/tmp:/tmp \
            --name higlass_container_name \
            higlass/higlass-docker
 ```
