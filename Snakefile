@@ -68,6 +68,8 @@ rule make_blacklist:
 rule index_genome:
 	input:
 		config["genome"]
+	conda:
+		"env/rcmc_conda.yaml"
 	output:
 		multiext(config["genome"], ".0123", ".amb", ".ann", ".bwt.2bit.64", ".pac")
 	shell:
@@ -76,8 +78,6 @@ rule index_genome:
 rule make_sort_dir:
 	# input:
 	# 	outdir = config["outdir"]
-	conda:
-		"env/rcmc_conda.yaml"
 	output:
 		temp(directory(config["outdir"]+"{condition}_sorttemp"))
 	shell:
