@@ -19,6 +19,10 @@ Next, create the required environment (conda can also be used here if mamba is n
 ```
 mamba env create --name snakemake-env -c conda-forge -c bioconda python=3.12 snakemake=9.12
 ```
+or
+```
+conda create --name snakemake-env -c conda-forge -c bioconda python=3.12 snakemake=9.12
+```
 Once the environment is made, activate it:
 ```
 conda activate snakemake-env
@@ -29,9 +33,10 @@ Create and move to a directory for your analysis:
 mkdir /path/to/your/analysis/directory
 cd /path/to/your/analysis/directory
 ```
-Download the repository to the directory:
+Download the repository to the directory and move to the directory:
 ```
-clone git https://github.com/ahansenlab/MicroC_RCMC_analysis
+git clone https://github.com/ahansenlab/MicroC_RCMC_analysis
+cd MicroC_RCMC_analysis
 ```
 ---
 ---
