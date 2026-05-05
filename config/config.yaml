@@ -7,7 +7,7 @@ outdir: outputs/
 genome: demo/hg19.fa.gz
 # Name of genome assembly (e.g. mm39, mm10, hg19, etc.)
 assembly: hg19
-# Path to tab-delimited chromosome sizes file with chromosomes sorted by [what?] and containing only the major chromosomes and not other [whatever these are called], formatted as for [link to USCS Goldenpath file]
+# Path to tab-delimited chromosome sizes file with chromosomes natural sorted (i.e. chr2 follows chr1, and chr10 follows chr9) and containing only the major chromosomes and no partial chromosome sizes, formatted in two tab-separated columns containing the chromosome name and length, respectively
 chromsizes: demo/hg19.sorted.chrom.sizes
 
 # Resolutions to bin contact maps to (comma-separated list, must all be integer multiples of the smallest value)
